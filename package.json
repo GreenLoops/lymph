@@ -1,19 +1,20 @@
 {
-  "author": "Erick Fleming <erick@sudogs.com>",
-  "name": "lymph",
-  "description": "nodejs framework for rich client applications",
-  "version": "0.1.0",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:GreenLoops/lymph.git"
-  },
-  "main": "./lib/lymph.js",
-  "engines": {
-    "node": "~0.6.2"
-  },
-  "dependencies": {
-  },
-  "devDependencies": {
-      "buster": "0.3.x"
-  }
+    "author": "Erick Fleming <erick@sudogs.com>",
+    "name": "lymph",
+    "description": "nodejs framework for rich client applications",
+    "version": "0.1.0",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:GreenLoops/lymph.git"
+    },
+    "main": "./lib/lymph.js",
+    "engines": {
+        "node": "~0.6.2"
+    },
+    "dependencies": {
+        "mongolian": "0.1.x"
+    },
+    "devDependencies": {
+        "buster": "0.3.x"
+    }
 }
