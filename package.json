@@ -13,6 +13,7 @@
     },
     "dependencies": {
         "mongolian": "0.1.x",
+        "underscore": "1.2.x",
         "less": "1.2.x"
     },
     "devDependencies": {
