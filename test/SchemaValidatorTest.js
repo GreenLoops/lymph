@@ -280,55 +280,23 @@ buster.testCase("Schema Validator", {
             var validity = this.validator.validate("thing", {other:"foo"});
             assert.equals(true, validity.isValid);
         }
-    }
-
-});
-
-var sampleData = {
-    propertyId: "1234",
-    units:[],
-    name: {
-        first:"foo",
-        last:"bar"
     },
-    created:1000,
-    status: 0,
-    colors:[],
-    favNums:[],
-    things:{
-        "123": {thingId:"123"},
-        "124": {thingId:"124"}
-    }
-}
 
-var sampleSchema = {
-    property: {
-        propertyId:"String",
-        units: [{
-            unitId:"String",
-            name:"String",
-            leases: [{
-                leaseId:"String",
-                tenants:[{
-                    tenantId:"String",
-                    name:"String"
-                }]
-            }]
-        }],
-        name: {
-            first: "String",
-            last: "String"
+    "given a simple schema": {
+
+        setUp: function(){
+            this.validator = new SchemaValidator({
+                thing: {
+                    name: "String",
+                    other: "String"
+                }
+            });
         },
-        created: "Date",
-        status: "Number",
-        colors: ["String"],
-        favNums: ["Number"],
-        favNums: ["Double"],
-        things:{
-            "Id": {
-                thingId:"Id",
-                name:"String"
-            }
+
+        "should validate the object, as long as it does not contanin something in addition to the schema": function(){
+            var validity = this.validator.validate("thing", {other:"foo", notvalid:"bar"});
+            assert.equals(false, validity.isValid);
         }
     }
-};
+});
+
