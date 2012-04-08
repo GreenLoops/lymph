@@ -4,6 +4,11 @@ var buster          = require("buster"),
 
 buster.testCase("Schema Validator", {
 
+    "should validate, given an optional schema": function(){
+        var validator = new SchemaValidator("*");
+        assert.equals(true, validator.validate("property", {name:"foo"}).isValid);
+    },
+
     "should not validate, given an empty schema": function(){
         var validator = new SchemaValidator({});
         assert.equals(false, validator.validate("property", {name:"foo"}).isValid);
