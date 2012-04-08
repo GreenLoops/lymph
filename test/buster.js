@@ -4,7 +4,8 @@ config["My tests"] = {
     env: "node",
     tests: [
         //"**/*Test.js"
-        "SchemaValidatorTest.js"
+        "SchemaValidatorTest.js",
+        "RepositoryTest.js"
     ]
 };
 
