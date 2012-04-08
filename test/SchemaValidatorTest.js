@@ -244,6 +244,37 @@ buster.testCase("Schema Validator", {
             });
             assert.equals(true, validity.isValid);
         }
+    },
+
+    "given an optional type": {
+
+        setUp: function(){
+            this.validator = new SchemaValidator({
+                thing: "*"
+            });
+        },
+
+        "should validate object, regardless of it's content": function(){
+            var validity = this.validator.validate("thing", {name:"foo"});
+            assert.equals(true, validity.isValid);
+        }
+    },
+
+    "given an optional sub type": {
+
+        setUp: function(){
+            this.validator = new SchemaValidator({
+                thing: {
+                    name: "*",
+                    other: "String"
+                }
+            });
+        },
+
+        "should validate object, regardless of it's content": function(){
+            var validity = this.validator.validate("thing", {other:"foo"});
+            assert.equals(true, validity.isValid);
+        }
     }
 
 });
